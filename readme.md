@@ -1,45 +1,33 @@
-# Threat Intel Enrichment
-
+Threat Intel Enrichment
 A Python-based threat intelligence repository and analyst lookup tool that combines local threat data with live MITRE ATT&CK Enrichment through a locally hosted Model Context Protocol (MCP) server.
 
 This project demonstrates how MCP can be used as a security Enrichment layer rather than embedding ATT&CK knowledge directly into an application.
 
----
-
-## Why I Built This
-
+Why I Built This
 This project was developed to explore practical applications of threat intelligence Enrichment and Model Context Protocol (MCP) integration.
 
 The goal was to build a lightweight analyst-focused tool capable of searching threat intelligence data locally while dynamically Enrichmenting results with MITRE ATT&CK intelligence through an MCP service.
 
 The project demonstrates:
 
-- Python development
-- Threat intelligence workflows
-- MITRE ATT&CK integration
-- MCP client/server communication
-- Security automation concepts
-- MCP-based tooling integration
-
----
-
-## Features
-
-### Threat Repository Search
-
+Python development
+Threat intelligence workflows
+MITRE ATT&CK integration
+MCP client/server communication
+Security automation concepts
+MCP-based tooling integration
+Features
+Threat Repository Search
 Search threats by:
 
-- Threat Actor
-- Severity
-- Tactic
-- MITRE ATT&CK Technique ID
-- General keyword matching
-
-### Structured Analyst Commands
-
+Threat Actor
+Severity
+Tactic
+MITRE ATT&CK Technique ID
+General keyword matching
+Structured Analyst Commands
 The application supports the following analyst-focused commands:
 
-```text
 help
 show all
 show severity <severity>
@@ -50,80 +38,54 @@ show mitre <id>
 peace
 quit
 exit
-```
-
 Examples:
 
-```text
 show severity critical
 show actor wizard spider
 show tactic impact
 show mitre t1486
-```
-
-### Keyword Search
-
+Keyword Search
 In addition to structured commands, the application supports free-text searches across all fields in the threat repository.
 
 Examples:
 
-```text
 mimikatz
 lockbit
 wizard spider
 critical
 impact
 t1486
-```
-
 The keyword engine searches across all threat record fields and returns matching results automatically.
 
-### MITRE ATT&CK MCP Integration
-
-- Local MITRE ATT&CK MCP Server
-- Official MCP Python SDK
-- HTTP-based MCP communication
-- Live ATT&CK Enrichment
-
-### Live ATT&CK Enrichment
-
+MITRE ATT&CK MCP Integration
+Local MITRE ATT&CK MCP Server
+Official MCP Python SDK
+HTTP-based MCP communication
+Live ATT&CK Enrichment
+Live ATT&CK Enrichment
 Threat records automatically retrieve:
 
-- Technique Name
-- ATT&CK Technique ID
-- Official ATT&CK Description
-
+Technique Name
+ATT&CK Technique ID
+Official ATT&CK Description
 from the MITRE ATT&CK framework using an MCP service.
 
----
-
-### Direct ATT&CK Technique Lookup
-
+Direct ATT&CK Technique Lookup
 The application can query ATT&CK techniques directly through the MITRE MCP server, even when a technique is not present in the local repository.
 
 Example:
 
-```text
 show mitre t1558
-```
-
 Output:
 
-```text
 MITRE ATT&CK LOOKUP
 
 Technique   : Steal or Forge Kerberos Tickets
 Attack ID   : T1558
 Description : Adversaries may attempt to subvert Kerberos authentication...
-```
-
 This allows Threat Intel Enrichment to operate as both a threat repository and a lightweight ATT&CK knowledge explorer.
 
----
-
-## Architecture
-
-```text
+Architecture
                 ┌──────────────────┐
                 │  User Query      │
                 └────────┬─────────┘
@@ -140,37 +102,23 @@ This allows Threat Intel Enrichment to operate as both a threat repository and a
                     │        ▲
                     └────────┘
                      Enrichment
-```
-
 Threat Intel Enrichment supports two workflows:
 
-### Repository Search
-
-```text
+Repository Search
 Threat Search
       ↓
 Repository Match
       ↓
 MITRE Enrichment
-```
-
-### Direct ATT&CK Lookup
-
-```text
+Direct ATT&CK Lookup
 ATT&CK Technique Query
         ↓
 MITRE MCP Query
         ↓
 ATT&CK Technique Information
-```
-
 This design separates local threat data from ATT&CK knowledge, allowing Enrichment to be sourced dynamically through MCP rather than stored directly inside the application.
 
----
-
-## Demo Workflow
-
-```text
+Demo Workflow
 show mitre t1486
         ↓
 Threat Repository Lookup
@@ -182,10 +130,7 @@ MITRE MCP Query
 ATT&CK Technique Retrieved
         ↓
 Enrichmented Analyst Output
-```
-## Project Structure
-
-```text
+Project Structure
 
 ---
 
@@ -210,128 +155,53 @@ threat_intel_Enrichment/
 │
 ├── requirements.txt
 └── README.md
-```
-
----
-
-## Requirements
-
-### Python
-
-```text
+Requirements
+Python
 Python 3.13+
-```
-
-### Dependencies
-
-```bash
+Dependencies
 pip install mcp mitre-mcp
-```
-
----
-
-## Installation
-
-### Create Virtual Environment
-
-```bash
+Installation
+Create Virtual Environment
 uv venv --seed
-```
-
 Activate:
 
-```bash
 source .venv/Scripts/activate
-```
-
-### Install Dependencies
-
-```bash
+Install Dependencies
 uv pip install --link-mode copy mcp mitre-mcp
-```
-
 Verify installation:
 
-```bash
 python -c "from mcp import Client; print('MCP OK')"
-```
-
 Expected output:
 
-```text
 MCP OK
-```
-
----
-
-## Running the MITRE MCP Server
-
+Running the MITRE MCP Server
 Start the MCP server:
 
-```bash
 mitre-mcp --http --port 8080
-```
-
 Expected output:
 
-```text
 MITRE ATT&CK MCP Server is ready
 MCP Endpoint: http://localhost:8080/mcp
-```
-
 Leave the server running while using the application.
 
----
-
-## Running Threat Intel Enrichment
-
+Running Threat Intel Enrichment
 In a second terminal:
 
-```bash
 source .venv/Scripts/activate
 
 python main.py
-```
-
----
-
-## Usage Examples
-
-### Display Help
-
-```text
+Usage Examples
+Display Help
 help
-```
-
-### Search by Severity
-
-```text
+Search by Severity
 show severity critical
-```
-
-### Search by Threat Actor
-
-```text
+Search by Threat Actor
 show actor wizard spider
-```
-
-### Search by Tactic
-
-```text
+Search by Tactic
 show tactic impact
-```
-
-### Search by ATT&CK Technique
-
-```text
+Search by ATT&CK Technique
 show mitre t1486
-```
-
----
-
-## Example Output
-
-```text
+Example Output
 ============================================================
 
 Threat Name : LockBit
@@ -355,93 +225,60 @@ Description : Adversaries may encrypt data on target
               of system and network resources...
 
 Lookit! 4 threat(s) found!
-```
-
----
-
-## MITRE ATT&CK Integration
-
+MITRE ATT&CK Integration
 The integrated MITRE ATT&CK MCP service was validated against:
 
-- 867 Techniques
-- 15 Tactics
-- 193 Threat Groups
-- 845 Software Entries
-- 268 Mitigations
-
+867 Techniques
+15 Tactics
+193 Threat Groups
+845 Software Entries
+268 Mitigations
 The application currently performs live Enrichment using:
 
-```text
 get_technique_by_id
-```
-
 from the MITRE ATT&CK MCP server.
 
----
-
-## Version History
-
-### v1.0
-
-- Initial CLI threat lookup functionality
-
-### v1.1
-
-- Expanded threat repository
-- Improved search capability
-
-### v1.2
-
-- Structured analyst commands
-- MITRE ATT&CK mappings
-
-### v1.3
-
-- Repository improvements
-- Enhanced command handling
-- User experience refinements
-
-### v1.4
-
-- MITRE ATT&CK MCP integration
-- Official MCP Python SDK implementation
-- Local HTTP MCP server deployment
-- Live ATT&CK technique Enrichment
-- Dynamic ATT&CK lookups using MITRE IDs
-
----
-
-## Planned Enhancements
-
+Version History
+v1.0
+Initial CLI threat lookup functionality
+v1.1
+Expanded threat repository
+Improved search capability
+v1.2
+Structured analyst commands
+MITRE ATT&CK mappings
+v1.3
+Repository improvements
+Enhanced command handling
+User experience refinements
+v1.4
+MITRE ATT&CK MCP integration
+Official MCP Python SDK implementation
+Local HTTP MCP server deployment
+Live ATT&CK technique Enrichment
+Dynamic ATT&CK lookups using MITRE IDs
+Planned Enhancements
 Future improvements under consideration:
 
-- ATT&CK mitigation Enrichment
-- ATT&CK software Enrichment
-- ATT&CK tactic Enrichment
-- MITRE threat group correlation
-- ATT&CK relationship mapping
-- Result caching
-- SQLite backend
-- JSON export
-- CSV export
-- REST API interface
-
----
-
-## Learning Objectives
-
+ATT&CK mitigation Enrichment
+ATT&CK software Enrichment
+ATT&CK tactic Enrichment
+MITRE threat group correlation
+ATT&CK relationship mapping
+Result caching
+SQLite backend
+JSON export
+CSV export
+REST API interface
+Learning Objectives
 This project was built to gain hands-on experience with:
 
-- Python development
-- Threat intelligence workflows
-- MITRE ATT&CK
-- Model Context Protocol (MCP)
-- Security automation
-- AI-enabled tooling
-- Data Enrichment pipelines
-
----
-
-## License
-
+Python development
+Threat intelligence workflows
+MITRE ATT&CK
+Model Context Protocol (MCP)
+Security automation
+AI-enabled tooling
+Data Enrichment pipelines
+License
 This project was developed for educational, portfolio, and professional development purposes.
