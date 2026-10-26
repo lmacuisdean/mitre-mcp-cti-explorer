@@ -1,4 +1,5 @@
 Threat Intel Enrichment
+
 A Python-based threat intelligence repository and analyst lookup tool that combines local threat data with live MITRE ATT&CK Enrichment through a locally hosted Model Context Protocol (MCP) server.
 
 This project demonstrates how MCP can be used as a security Enrichment layer rather than embedding ATT&CK knowledge directly into an application.
