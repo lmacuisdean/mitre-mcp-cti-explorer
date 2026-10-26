@@ -1,0 +1,26 @@
+﻿threat_name,threat_actor,mitre_id,severity,tactic,description
+Mimikatz,Various,T1003,High,Credential Access,Credential dumping tool used to extract passwords and hashes
+Emotet,TA542,T1055,High,Defense Evasion,Banking trojan and malware delivery platform that can use process injection
+Cobalt Strike,Various,T1105,Medium,Command and Control,Post-exploitation framework frequently abused by attackers to transfer tools and payloads
+TrickBot,Wizard Spider,T1082,High,Discovery,Modular malware used for system information discovery reconnaissance and lateral movement
+QakBot,TA570,T1059,High,Execution,Banking trojan associated with command and scripting interpreter activity malware distribution and persistence
+IcedID,Lunar Spider,T1566.001,High,Initial Access,Malware distributed through phishing campaigns including spearphishing attachments
+Bumblebee,Various,T1204.002,High,Execution,Malware loader that can be executed by users opening malicious files to deploy follow-on payloads
+LockBit,LockBit Group,T1486,Critical,Impact,Ransomware operation known for encrypting data to disrupt victim operations
+BlackCat,ALPHV,T1486,Critical,Impact,Ransomware operation using Rust-based malware to encrypt victim data
+Clop,FIN11,T1567,Critical,Exfiltration,Ransomware operation associated with data theft and extortion including exfiltration over web services
+Lazarus,Lazarus Group,T1190,Critical,Initial Access,North Korean state-linked threat actor associated with exploitation of public-facing applications in some campaigns
+APT29,Cozy Bear,T1078,High,Persistence,Russian state-linked threat actor associated with the use of valid accounts for access and persistence
+APT28,Fancy Bear,T1055,High,Defense Evasion,Russian state-linked threat actor known for espionage and use of process injection in some operations
+Volt Typhoon,Volt Typhoon,T1021,High,Lateral Movement,Chinese state-sponsored threat actor targeting critical infrastructure and using remote services for lateral movement
+Sandworm,Sandworm Team,T0814,Critical,Inhibit Response Function,Russian state-linked threat actor associated with destructive operations against industrial control systems
+FIN7,FIN7,T1059,High,Execution,Financially motivated threat actor targeting organizations and using command and scripting interpreters in some operations
+Scattered Spider,Scattered Spider,T1078,Critical,Persistence,Threat actor associated with social engineering and the use of valid accounts
+Mustang Panda,Mustang Panda,T1105,High,Command and Control,Chinese espionage group associated with custom malware and transfer of tools or payloads
+DarkSide,DarkSide,T1486,Critical,Impact,Ransomware operation associated with high-profile extortion campaigns and data encryption
+Ryuk,Wizard Spider,T1486,Critical,Impact,Ransomware family used in attacks against enterprise environments to encrypt data
+Black Basta,Black Basta,T1566.001,Critical,Initial Access,Ransomware operation associated with phishing campaigns including malicious attachments
+BazarLoader,TrickBot Operators,T1204.002,High,Execution,Malware loader associated with user execution of malicious files to establish initial footholds
+Silent Librarian,Silent Librarian,T1566.001,Medium,Initial Access,Iranian threat actor associated with phishing campaigns targeting credentials and accounts
+OilRig,OilRig,T1059,High,Execution,Iranian state-linked threat actor associated with command and scripting interpreter activity in some campaigns
+Purple Fox,Various,T1574,Medium,Execution,Malware associated with execution-flow hijacking techniques
