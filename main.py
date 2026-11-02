@@ -244,15 +244,21 @@ def main():
                             enrich_mitre(row["mitre_id"])
                         )
 
-                        technique = enrichment["technique"]
-
                         print("\n" + "-" * 60)
                         print("MITRE ATT&CK ENRICHMENT")
                         print("-" * 60)
 
-                        print(f"Technique   : {technique['name']}")
-                        print(f"Attack ID   : {technique['mitre_id']}")
-                        print(f"Description : {technique['description']}")
+                        if "technique" in enrichment:
+
+                            technique = enrichment["technique"]
+
+                            print(f"Technique   : {technique['name']}")
+                            print(f"Attack ID   : {technique['mitre_id']}")
+                            print(f"Description : {technique['description']}")
+
+                        else:
+                            print(f"MCP Error: {enrichment}")
+
 
         # --------------------------------------------------------
         # ERROR HANDLING
