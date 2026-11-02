@@ -219,7 +219,8 @@ mitre-mcp-cti-explorer/
 │   ├── threat_intel_enrich_v1_1.py
 │   ├── threat_intel_enrich_v1_2.py
 │   ├── threat_intel_enrich_v1_3.py
-│   └── threat_intel_enrich_v1_4.py
+│   └── threat_intel_enrich_v1_4_1.py
+│   └── threat_intel_enrich_v1_4_2.py
 │
 ├── main.py
 ├── release.md
